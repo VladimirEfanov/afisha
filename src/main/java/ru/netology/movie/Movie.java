@@ -1,0 +1,44 @@
+package ru.netology.movie;
+
+public class Movie {
+    private String[] movies = new String[0];
+    private final int limit;
+
+    public Movie() {
+        this.limit = 7;
+    }
+
+    public Movie(int limit) {
+        this.limit = limit;
+    }
+
+    public void addMovie(String film) {
+        String[] tmp = new String[movies.length + 1];
+        for (int i = 0; i < movies.length; i++) {
+            tmp[i] = movies[i];
+        }
+        tmp[tmp.length - 1] = film;
+        movies = tmp;
+    }
+
+    public String[] findAll() {
+        return movies;
+    }
+
+    public String[] findLast() {
+        int resultLength;
+        if (movies.length < limit) {
+            resultLength = movies.length;
+        } else {
+            resultLength = limit;
+
+        }
+        String[] tmp = new String[resultLength];
+        for (int i = 0; i < tmp.length; i++) {
+            tmp[i] = movies[movies.length - 1 - i];
+        }
+        return tmp;
+
+    }
+
+}
